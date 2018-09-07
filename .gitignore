@@ -1,0 +1,16 @@
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ENV files
+*env
+
+# Basics
+*.py[cod]
+__pycache__
+
+# Logs
+*.log
+pip-log.txt
+npm-debug.log*

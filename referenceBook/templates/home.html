@@ -1,0 +1,24 @@
+{% load cms_tags sekizai_tags %}
+
+<html>
+    <head>
+        <title>{% page_attribute "page_title" %}</title>
+        {% render_block "css" %}
+    </head>
+    <body>
+        {% cms_toolbar %}
+
+        <div>
+            {% static_placeholder 'header' %}
+            {% block header %}{% endblock header %}
+        </div>
+
+        {% placeholder "content" %}
+        {% render_block "js" %}
+
+        <div id="footer_container">
+            {% static_placeholder "footer" %}
+            {% block footer %}{% endblock footer %}
+        </div>
+    </body>
+</html>
