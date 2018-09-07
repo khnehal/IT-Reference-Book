@@ -14,3 +14,20 @@ __pycache__
 *.log
 pip-log.txt
 npm-debug.log*
+
+# virtual environments
+.env
+
+# User-uploaded media
+static_root/
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+.env
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
