@@ -15,5 +15,24 @@ __pycache__
 pip-log.txt
 npm-debug.log*
 
+
 #media
 apps/media/filer_public_thumbnails/
+
+# virtual environments
+.env
+
+# User-uploaded media
+static_root/
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+.env
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+>>>>>>> e12a504a97d453abc90a79ad314909723d0582c8
