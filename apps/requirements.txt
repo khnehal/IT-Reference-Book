@@ -1,0 +1,50 @@
+# Django
+Django==1.11.15
+
+# Django CMS
+django-cms==3.5.2
+
+# Django Dependency
+pytz==2017.2
+
+# For Database
+# psycopg2==2.6.1
+
+# Dev related tools
+django-debug-toolbar==1.5
+sqlparse==0.2.1
+django-extensions==1.6.1
+
+# For reading environment sepecific settings
+django-environ==0.4.0
+
+# uWSGI
+# uWSGI==2.0.11.2
+
+# Interactive python debugging
+ipdb==0.10.3
+
+# Interactive python debugging dependencies
+ipython==5.4.1
+ipython-genutils==0.2.0
+
+# Serving staticfiles
+whitenoise==3.3.0
+
+# Models
+django-model-utils==2.6.1
+
+# Images
+Pillow==3.4.1
+
+# Django Admin Style
+djangocms-admin-style==1.2.8
+
+# Six
+six==1.11.0
+
+# For images and ckeditor
+filer
+easy_thumbnails
+mptt
+djangocms_text_ckeditor
