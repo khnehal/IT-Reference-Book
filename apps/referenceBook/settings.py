@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
     'cms',
     'menus',
     'treebeard',
@@ -49,6 +50,9 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'mptt',
     'djangocms_text_ckeditor',
+
+    'referenceBook.tiles_container',
+    'referenceBook.tile_component',
 ]
 
 MIDDLEWARE = [

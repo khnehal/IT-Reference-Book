@@ -1,0 +1,11 @@
+{% load cms_tags staticfiles sekizai_tags %}
+<div class="col-xs-4 tile-component">
+    <a href="{% if instance.link_to_page.get_absolute_url %}{{ instance.link_to_page.get_absolute_url }}{% endif %}">
+        <div>
+            {% if instance.has_image %}
+                <img src="{{ instance.image.url }}" alt="{{ instance.img_alt_text }}">
+            {% endif %}
+            <h2>{{ instance.tile_title }}</h2>
+        </div>
+    </a>
+</div>
