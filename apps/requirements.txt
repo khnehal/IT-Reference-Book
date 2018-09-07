@@ -43,8 +43,6 @@ djangocms-admin-style==1.2.8
 # Six
 six==1.11.0
 
-# For images and ckeditor
-filer
-easy_thumbnails
-mptt
-djangocms_text_ckeditor
+# CK Editor
+djangocms-text-ckeditor
+django-filer
