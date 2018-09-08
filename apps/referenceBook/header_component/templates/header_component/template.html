@@ -5,16 +5,34 @@
         .header-logo > img {
             height: 100%;
         }
+
+        .dell-hero-image img{
+            width: 100%;
+            height: 100%;
+        }
+
+        .dell-hero-image {
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+        }
     </style>
 {% endaddtoblock %}
 
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand header-logo" href="/">
-      <img src="{% static 'images/dell-emc-logo.png' %}">
-  </a>
+<div style="background-color: black">
+    <nav class="container navbar navbar-dark bg-dark">
+      <a class="navbar-brand header-logo" href="/">
+          <img src="{% static 'images/dell-emc-logo.png' %}">
+      </a>
 
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
+      <!-- <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </nav>
+    {% if current_page.is_home %}
+    <div class="dell-hero-image">
+        <img src="{% static 'images//Dell-EMC-City-Night.jpg' %}">
+    </div>
+    {% endif %}
+</div>
