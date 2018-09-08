@@ -43,6 +43,7 @@
 
         .card {
             padding: 30px 0;
+            cursor: pointer;
         }
 
         .card .content-block:not(.box-part) {
@@ -86,7 +87,7 @@
 {% endaddtoblock %}
 
 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 tile-component card">
-    <div class="{% if not instance.has_image %}box-part{% endif %} content-block text-center">
+    <div class="{% if not instance.has_image %}box-part{% endif %} content-block text-center" {% if instance.link_to_page.get_absolute_url %} onclick="window.location.pathname={{ instance.link_to_page.get_absolute_url }}" {% endif %}>
         <a href="{% if instance.link_to_page.get_absolute_url %}{{ instance.link_to_page.get_absolute_url }}{% endif %}">
             {% if instance.has_image %}
             <div class="box" {% if instance.has_image %} style="background-image: url('{{ instance.image.url }}')" {% endif %}>
@@ -95,7 +96,11 @@
                 </div>
             </div>
             {% endif %}
-            <h2>{{ instance.tile_title }}</h2>
+            {% if not instance.has_image %}
+                <h3>{{ instance.tile_title }}</h3>
+            {% else %}
+                <h2>{{ instance.tile_title }}</h2>
+            {% endif %}
         </a>
     </div>
 </div>
