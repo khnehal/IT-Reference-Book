@@ -59,9 +59,10 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'referenceBook.header_component',
-    'referenceBook.tiles_container',
-    'referenceBook.tile_component',
+    'apps',
+    'apps.header_component',
+    'apps.tiles_container',
+    'apps.tile_component',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
