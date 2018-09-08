@@ -35,4 +35,5 @@ dist/
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
->>>>>>> e12a504a97d453abc90a79ad314909723d0582c8
+
+*.sqlite3
