@@ -90,9 +90,9 @@
         <a href="{% if instance.link_to_page.get_absolute_url %}{{ instance.link_to_page.get_absolute_url }}{% endif %}">
             {% if instance.has_image %}
             <div class="box" {% if instance.has_image %} style="background-image: url('{{ instance.image.url }}')" {% endif %}>
-                    <div class="img">
-                        <img src="{{ instance.image.url }}" alt="{{ instance.img_alt_text }}" />
-                    </div>
+                <div class="img">
+                    <img src="{{ instance.image.url }}" alt="{{ instance.img_alt_text }}" />
+                </div>
             </div>
             {% endif %}
             <h2>{{ instance.tile_title }}</h2>
