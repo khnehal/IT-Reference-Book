@@ -1,0 +1,101 @@
+{% load static cms_tags staticfiles sekizai_tags %}
+
+{% addtoblock "css" %}
+    <style type="text/css">
+        body {
+            background: linear-gradient(to bottom, rgb(220, 244, 255) 0%, rgba(3,75, 82, 0) 100%);
+            height: 100%;
+            margin: 0;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: Verdana, Arial, sans-serif;
+        }
+
+        .box{
+            padding:60px 0px;
+        }
+
+        .box-part.content-block {
+            border: 1px solid #0049c1;
+            padding: 75px 15px;
+            border-radius:10px;
+            background:#FFF;
+            margin:30px 0px;
+        }
+
+        .box-part:hover {
+            background:#4183D7;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+
+        .box-part:hover .title ,
+        .box-part:hover .text ,
+        .box-part:hover a{
+            color:#FFF;
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+
+        .card {
+            padding: 30px 0;
+        }
+
+        .card .content-block:not(.box-part) {
+            padding: 10px;
+        }
+
+        .card .content-block:hover {
+            box-shadow:0 30px 70px rgba(0,0,0,.3);
+            -webkit-transition: all 0.5s ease-out;
+            -moz-transition: all 0.5s ease-out;
+            -o-transition: all 0.5s ease-out;
+            transition: all 0.5s ease-out;
+        }
+
+        .card .box {
+            position: relative;
+            /*box-shadow: 0 12px 14px 0 rgba(0,0,0,.1);*/
+            top:50%;
+            left:0;
+            text-align:center;
+            padding:20px;
+            box-sizing:border-box;
+            width:100%;
+            height: 250px;
+            background-repeat:no-repeat;
+            background-size:contain;
+            background-position:center center;
+        }
+
+        .card .box .img img {
+            display: none;
+            width:100%;
+            height:100%;
+        }
+        .card .box h2 {
+            font-size:20px;
+            color:#262626;
+            margin:20px auto;
+        }
+    </style>
+{% endaddtoblock %}
+
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 tile-component card">
+    <div class="{% if not instance.has_image %}box-part{% endif %} content-block text-center">
+        <a href="{% if instance.link_to_page.get_absolute_url %}{{ instance.link_to_page.get_absolute_url }}{% endif %}">
+            {% if instance.has_image %}
+            <div class="box" {% if instance.has_image %} style="background-image: url('{{ instance.image.url }}')" {% endif %}>
+                    <div class="img">
+                        <img src="{{ instance.image.url }}" alt="{{ instance.img_alt_text }}" />
+                    </div>
+            </div>
+            {% endif %}
+            <h2>{{ instance.tile_title }}</h2>
+        </a>
+    </div>
+</div>
