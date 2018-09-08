@@ -59,6 +59,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
+    'referenceBook.header_component',
     'referenceBook.tiles_container',
     'referenceBook.tile_component',
 ]
@@ -185,7 +186,29 @@ STATICFILES_DIRS = (
 )
 
 # Whitenoise Configuration
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_ROOT = env('MEDIA_ROOT', default=join(BASE_DIR, 'media'))
 MEDIA_URL = env('MEDIA_URL', default='/media/')
+
+# CK Editor settings
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ["Format", "Styles", ],
+            ["Bold", "Italic", "Underline", "Strikethrough", "Undo", "Redo", ],
+            ["JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock", ],
+            ["Link", "Unlink", "Anchor", "SectionLink", ],
+            ["Smiley", "SpecialChar", ],
+            ["Image", "Table", ],
+            ["NumberedList", "BulletedList", 'CreateDiv'],
+            ["Subscript", "Superscript", "Blockquote"],
+            ["TextColor", "BGColor", "Source", ],
+        ],
+        'extraPlugins': 'image2',
+    },
+}
+CKEDITOR_BASEPATH = "static/ckeditor/ckeditor"

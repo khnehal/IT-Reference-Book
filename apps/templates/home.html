@@ -3,19 +3,37 @@
 <html>
     <head>
         <title>{% page_attribute "page_title" %}</title>
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
         {% render_block "css" %}
+        <style type="text/css">
+            body {
+                background: linear-gradient(to bottom, rgb(220, 244, 255) 0%, rgba(3,75, 82, 0) 100%);
+                height: 100%;
+                margin: 0;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                font-family: Verdana, Arial, sans-serif;
+            }
+        </style>
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
     </head>
     <body>
         {% cms_toolbar %}
 
-        <div class="container page">
+        <div class="page">
             <div class="header_container">
                 {% static_placeholder 'header' %}
                 {% block header %}{% endblock header %}
             </div>
 
-            <div class="page_content_container_cls">
+            <div class="container page_content_container_cls">
                 {% placeholder "content" %}
                 {% block content %}{% endblock content %}
             </div>

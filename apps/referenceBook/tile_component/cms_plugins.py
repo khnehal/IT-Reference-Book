@@ -12,6 +12,8 @@ class TileComponentPlugin(CMSPluginBase):
     render_template = "tile_component/template.html"
     model = TileComponentModel
     cache = False
+    require_parent = True
+    parent_classes = ['TilesContainerPlugin', ]
 
 
 plugin_pool.register_plugin(TileComponentPlugin)
