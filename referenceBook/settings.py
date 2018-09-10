@@ -61,8 +61,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'apps',
     'apps.header_component',
-    'apps.tiles_container',
     'apps.tile_component',
+    'apps.tiles_container',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
