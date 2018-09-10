@@ -1,4 +1,4 @@
-{% load cms_tags sekizai_tags %}
+{% load cms_tags static sekizai_tags %}
 
 <html>
     <head>
@@ -13,11 +13,19 @@
         <style type="text/css">
             body {
                 background: linear-gradient(to bottom, rgb(220, 244, 255) 0%, rgba(3,75, 82, 0) 100%);
+                background-image: url('{% static 'images/DellBg.jpg' %}'); 
                 height: 100%;
                 margin: 0;
+                background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
-                font-family: Verdana, Arial, sans-serif;
+                font-family: serif;
+            }
+            * {
+                font-family: serif;
+            }
+            p {
+                font-size: 1.2em;
             }
         </style>
 
