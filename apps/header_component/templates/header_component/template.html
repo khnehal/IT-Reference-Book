@@ -25,14 +25,49 @@
           <img src="{% static 'images/dell-emc-logo.png' %}">
       </a>
 
-      <!-- <form class="form-inline">
+      <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
+      </form>
     </nav>
     {% if current_page.is_home %}
-    <div class="dell-hero-image">
+    <!-- <div class="dell-hero-image">
         <img src="{% static 'images//Dell-EMC-City-Night.jpg' %}">
-    </div>
+    </div> -->
+
+      <div id="homepageCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#homepageCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#homepageCarousel" data-slide-to="1"></li>
+          <li data-target="#homepageCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active dell-hero-image">
+            <img src="{% static 'images/Dell-EMC-City-Night.jpg' %}" alt="Los Angeles">
+          </div>
+
+          <div class="item dell-hero-image">
+            <img src="{% static 'images/dell-internal-systems.jpg' %}" alt="Chicago">
+          </div>
+
+          <div class="item dell-hero-image">
+            <img src="{% static 'images/Dell-EMC-City-Night.jpg' %}" alt="New york">
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#homepageCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#homepageCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
     {% endif %}
 </div>
