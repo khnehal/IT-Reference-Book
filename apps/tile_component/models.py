@@ -10,7 +10,6 @@ from filer.fields.image import FilerImageField
 class TileComponentModel(CMSPlugin):
 
     tile_title = models.CharField(max_length=250)
-
     has_image = models.BooleanField(default=False)
     img_alt_text = models.CharField(max_length=250, blank=True, default='')
     image = FilerImageField(

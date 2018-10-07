@@ -56,13 +56,15 @@ THIRD_PARTY_APPS = [
     'easy_thumbnails',
     'mptt',
     'djangocms_text_ckeditor',
+    'django_extensions',
 ]
 
 LOCAL_APPS = [
     'apps',
     'apps.header_component',
-    'apps.tiles_container',
     'apps.tile_component',
+    'apps.tiles_container',
+    'apps.search',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
