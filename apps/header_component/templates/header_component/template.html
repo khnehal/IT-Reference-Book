@@ -2,20 +2,15 @@
 
 {% addtoblock "css" %}
     <style type="text/css">
-        .header-logo > img {
-            height: 100%;
-        }
 
-        .dell-hero-image img{
-            width: 100%;
-            height: 100%;
-        }
+        .header-logo > img { height: 100%; }
+        .full-bleed-header { height: 500px; }
+        .dell-hero-image { position: relative; background-repeat: no-repeat; background-size: contain; background-position: center center; height: 100%; }
+        .dell-hero-image img{ width: 100%; height: 100%; }
+        .slide-contents { position: absolute; top: 25%; left: 15%; width: 50%; }
+        .slide-button a { padding: 15px 20px; background: white; margin: 25px 0; border: 2px solid black; border-radius: 25px; }
+        .slide-description { margin: 20px 0; padding: 10px 0; }
 
-        .dell-hero-image {
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center center;
-        }
     </style>
 {% endaddtoblock %}
 
@@ -31,43 +26,60 @@
       </form>
     </nav>
     {% if current_page.is_home %}
-    <!-- <div class="dell-hero-image">
-        <img src="{% static 'images//Dell-EMC-City-Night.jpg' %}">
-    </div> -->
 
-      <div id="homepageCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#homepageCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#homepageCarousel" data-slide-to="1"></li>
-          <li data-target="#homepageCarousel" data-slide-to="2"></li>
-        </ol>
+    <div class="container full-bleed-header">
+        <div id="homepageCarousel" class="carousel slide" data-ride="carousel">
+          <!-- Indicators -->
+          <ol class="carousel-indicators">
+            {% for plugin in instance.child_plugin_instances %}
+              <li data-target="#homepageCarousel" data-slide-to="{{forloop.counter0}}" class="{% if forloop.counter0 == 0 %}active{% endif %}"></li>
+            {% endfor %}
+          </ol>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active dell-hero-image">
-            <img src="{% static 'images/Dell-EMC-City-Night.jpg' %}" alt="Los Angeles">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            {% for plugin in instance.child_plugin_instances %}
+              <div class="item dell-hero-image {% if forloop.counter0 == 0 %}active{% endif %}">
+                <img src="{{plugin.image_filer.url}}" alt="{{plugin.title}}">
+
+                <div class="slide-contents">
+                  {% if plugin.title|length > 0 %}
+                    <div class="slide-title"> {{ plugin.title|safe }} </div>
+                  {% endif %}
+
+                  {% if plugin.description|length > 0 %}
+                    <div class="slide-description"> {{ plugin.description|safe }} </div>
+                  {% endif %}
+
+                  {% if plugin.btn_text|length > 0 %}
+                    <div class="slide-button">
+                      <a href="
+                          {% if plugin.is_internal_link %}
+                          {{plugin.internal_url}}
+                          {% else %}
+                          {{plugin.external_url}}
+                          {% endif %}">
+                        {{ plugin.btn_text }}
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
+
+              </div>
+            {% endfor %}
           </div>
 
-          <div class="item dell-hero-image">
-            <img src="{% static 'images/dell-internal-systems.jpg' %}" alt="Chicago">
-          </div>
-
-          <div class="item dell-hero-image">
-            <img src="{% static 'images/Dell-EMC-City-Night.jpg' %}" alt="New york">
-          </div>
+          <!-- Left and right controls -->
+          <a class="left carousel-control" href="#homepageCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="right carousel-control" href="#homepageCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#homepageCarousel" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#homepageCarousel" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+    </div>
 
     {% endif %}
 </div>
